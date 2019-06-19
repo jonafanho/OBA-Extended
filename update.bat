@@ -12,7 +12,7 @@ powershell -Command "gci GTFS/*.txt -recurse | ForEach { (Get-Content $_ | ForEa
 powershell -Command "gci GTFS/*.txt -recurse | ForEach { (Get-Content $_ | ForEach {$_ -replace '80X - N5', '80X-N5'}) | Set-Content $_ }"
 powershell -Command "gci GTFS/*.txt -recurse | ForEach { (Get-Content $_ | ForEach {$_ -replace '90X -N1', '90X-N1'}) | Set-Content $_ }"
 powershell -Command "gci GTFS/*.txt -recurse | ForEach { (Get-Content $_ | ForEach {$_ -replace '90X -N4', '90X-N4'}) | Set-Content $_ }"
-powershell -Command "gci GTFS/*.txt -recurse | ForEach { (Get-Content $_ | ForEach {$_ -replace '90X -S2', '90X-S2'}) | Set-Content $_ }"
+powershell -Command "gci GTFS/*.txt -recurse | ForEach { (Get-Content $_ | ForEach {$_ -replace '90X - S2', '90X-S2'}) | Set-Content $_ }"
 
 GTFS\7za a GTFS/Skagit_Transit.zip ./GTFS/*.txt
 
