@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+	<bean id="gtfs-bundles" class="org.onebusaway.transit_data_federation.bundle.model.GtfsBundles">
+		<property name="bundles">
+			<list>
+				<ref bean="WTA" />
+				<ref bean="Skagit" />
+				<ref bean="Island" />
+				<ref bean="Jefferson" />
+				<!-- References to other GTFS feeds could go here -->
+			</list>
+		</property>
+	</bean>
+
+	<bean id="WTA" class="org.onebusaway.transit_data_federation.bundle.model.GtfsBundle">
+		<property name="path" value="GTFS/WTA.zip" />
+	</bean>
+
+	<bean id="Skagit" class="org.onebusaway.transit_data_federation.bundle.model.GtfsBundle">
+		<property name="path" value="GTFS/Skagit_Transit.zip" />
+		<property name="defaultAgencyId" value="poo" />
+		<property name="agencyIdMappings">
+			<map>
+				<entry key="skagit" value="poo" />
+			</map>
+		</property>
+	</bean>
+
+	<bean id="Island" class="org.onebusaway.transit_data_federation.bundle.model.GtfsBundle">
+		<property name="path" value="GTFS/Island_Transit.zip" />
+		<property name="defaultAgencyId" value="34" />
+		<property name="agencyIdMappings">
+			<map>
+				<entry key="island" value="34" />
+			</map>
+		</property>
+	</bean>
+
+	<bean id="Jefferson" class="org.onebusaway.transit_data_federation.bundle.model.GtfsBundle">
+		<property name="path" value="GTFS/Jefferson_Transit.zip" />
+	</bean>
+
+</beans>

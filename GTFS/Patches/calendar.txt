@@ -1,0 +1,6 @@
+service_id,monday,tuesday,wednesday,thursday,friday,saturday,sunday,start_date,end_date
+mtwtf,1,1,1,1,1,0,0,20000101,99991231
+ss,0,0,0,0,0,1,1,20000101,99991231
+sat,0,0,0,0,0,1,0,20000101,99991231
+tt,0,1,0,1,0,0,0,20000101,99991231
+w,0,0,1,0,0,0,0,20000101,99991231
