@@ -8,6 +8,7 @@
 	<bean id="gtfs-bundles" class="org.onebusaway.transit_data_federation.bundle.model.GtfsBundles">
 		<property name="bundles">
 			<list>
+				<ref bean="KCM" />
 				<ref bean="WTA" />
 				<ref bean="Skagit" />
 				<ref bean="Island" />
@@ -17,6 +18,10 @@
 		</property>
 	</bean>
 
+	<bean id="KCM" class="org.onebusaway.transit_data_federation.bundle.model.GtfsBundle">
+		<property name="path" value="GTFS/KCM.zip" />
+	</bean>
+	
 	<bean id="WTA" class="org.onebusaway.transit_data_federation.bundle.model.GtfsBundle">
 		<property name="path" value="GTFS/WTA.zip" />
 	</bean>
@@ -43,6 +48,14 @@
 
 	<bean id="Jefferson" class="org.onebusaway.transit_data_federation.bundle.model.GtfsBundle">
 		<property name="path" value="GTFS/Jefferson_Transit.zip" />
+	</bean>
+	
+	<bean class="org.onebusaway.transit_data_federation.impl.realtime.gtfs_realtime.GtfsRealtimeSource">
+		<property name="tripUpdatesUrl" value="http://api.pugetsound.onebusaway.org/api/gtfs_realtime/trip-updates-for-agency/1.pb?key=TEST" />
+		<property name="vehiclePositionsUrl" value="http://api.pugetsound.onebusaway.org/api/gtfs_realtime/vehicle-positions-for-agency/1.pb?key=TEST" />
+		<property name="alertsUrl" value="http://api.pugetsound.onebusaway.org/api/gtfs_realtime/alerts-for-agency/1.pb?key=TEST" />
+		<!-- Optionally set the refresh interval - how often we query the URLs, in seconds (default=30) -->
+		<property name="refreshInterval" value="10" />
 	</bean>
 
 	<bean id="entityReplacementStrategyFactory" class="org.onebusaway.transit_data_federation.bundle.tasks.EntityReplacementStrategyFactory">

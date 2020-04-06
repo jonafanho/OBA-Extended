@@ -1,5 +1,7 @@
 del /q /f GTFS\*.txt
+del /q /f GTFS\*.zip
 
+curl http://developer.onebusaway.org/tmp/sound/gtfs/modified/1_gtfs.zip > GTFS/KCM.zip
 curl https://raw.githubusercontent.com/whatcomtrans/publicwtadata/master/GTFS/wta_gtfs_latest.zip > GTFS/WTA.zip
 curl http://gtfs.s3.amazonaws.com/skagit-transit_20150429_1915.zip > GTFS/Skagit_Transit.zip
 curl https://raw.githubusercontent.com/transitland/gtfs-archives-not-hosted-elsewhere/master/island-transit-wa-us.zip > GTFS/Island_Transit.zip
